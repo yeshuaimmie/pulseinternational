@@ -1,0 +1,9 @@
+node_modules/
+.env
+coverage/
+logs/
+*.log
+.DS_Store
+
+/seed/seed.js
+**/seed/seed.js
