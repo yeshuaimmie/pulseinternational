@@ -1,5 +1,18 @@
 <%- include('../partials/head', { title }) %>
-<body style="padding-top: 0;">
+<body style="padding-top: 0; background: linear-gradient(rgba(8,10,69,0.85), rgba(0,240,255,0.45)), url('/photos/hero%20bg.jpg') center/cover no-repeat fixed !important; color: white !important;">
+<style>
+    .main-content { background: transparent !important; }
+    .card, .stat-card {
+        background: rgba(255, 255, 255, 0.05) !important;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+    }
+    .card h1, .card h3, .stat-info h3, .stat-info p, .card-header h3 { color: white !important; }
+    .stat-icon { background: rgba(255,255,255,0.1) !important; color: white !important; border: 1px solid rgba(255,255,255,0.1) !important; }
+    table thead th { background: rgba(255,255,255,0.1) !important; color: white !important; }
+    table tbody td { color: rgba(255,255,255,0.9) !important; }
+</style>
 <div class="dashboard">
   <%- include('../partials/userSidebar') %>
 
@@ -120,7 +133,7 @@
         <label>Wallet Balance</label>
         <input type="text" value="UGX <%= Number(currentUser?.balance || 0).toLocaleString() %>" readonly class="form-control">
       </div>
-      <p style="margin-bottom: 1rem; color: #666;">Investments are funded directly from your wallet balance.</p>
+      <p style="margin-bottom: 1rem; color: rgba(255,255,255,0.7);">Investments are funded directly from your wallet balance.</p>
       <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Investment</button>
     </form>
   </div>

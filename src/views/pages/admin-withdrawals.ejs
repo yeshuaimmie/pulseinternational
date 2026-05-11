@@ -1,5 +1,19 @@
 <%- include('../partials/head', { title }) %>
-<body style="padding-top: 0;">
+<body style="padding-top: 0; background: linear-gradient(rgba(8,10,69,0.85), rgba(0,240,255,0.45)), url('/photos/hero%20bg.jpg') center/cover no-repeat fixed !important; color: white !important;">
+<style>
+    .main-content { background: transparent !important; }
+    .card, .stat-card, .search-container, .filter-select, .search-input, .summary-card, .total-calculator {
+        background: rgba(255, 255, 255, 0.05) !important;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+    }
+    .card h1, .card h3, .stat-info h3, .stat-info p, .card-header h3, .search-input::placeholder, .summary-label, .summary-value, .calc-label, .calc-value { color: white !important; }
+    .stat-icon, .profile-avatar, .inline-balance { background: rgba(255,255,255,0.1) !important; color: white !important; border: 1px solid rgba(255,255,255,0.1) !important; }
+    table thead th { background: rgba(255,255,255,0.1) !important; color: white !important; }
+    table tbody td { color: rgba(255,255,255,0.9) !important; }
+    .filter-select option { background: #080a45; color: white; }
+</style>
 <div class="dashboard">
   <%- include('../partials/adminSidebar') %>
 
@@ -117,13 +131,13 @@
                     <div class="profile-avatar"><%= (item.user?.fullName || 'U').charAt(0).toUpperCase() %></div>
                     <div>
                       <div style="font-weight: 500;"><%= item.user?.fullName || '-' %></div>
-                      <div style="font-size: 0.8rem; color: #666;"><%= item.user?.email || '-' %></div>
+                      <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7);"><%= item.user?.email || '-' %></div>
                     </div>
                   </div>
                 </td>
                 <td style="font-weight: 600; color: var(--danger-color);">UGX <%= Number(item.amount).toLocaleString() %></td>
                 <td>
-                  <% if (item.paymentMethod === 'mtn') { %><i class="fas fa-mobile-alt mtn-color"></i> MTN Money<% } %>
+                  <% if (item.paymentMethod === 'mtn') { %><i class="fas fa-mobile-alt mtn-color"></i> Airtel Money<% } %>
                   <% if (item.paymentMethod === 'airtel') { %><i class="fas fa-mobile-alt airtel-color"></i> Airtel Money<% } %>
                   <% if (item.paymentMethod === 'bank') { %><i class="fas fa-university"></i> Bank Transfer<% } %>
                 </td>

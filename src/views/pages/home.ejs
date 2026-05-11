@@ -1,20 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <title>whaleInvesotors - Smart Investment Platform Uganda</title>
+    <title>Pulse International Investors - Smart Investment Platform Uganda</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-auth-card {
+            background: rgba(8, 10, 69, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            width: 100%;
+            max-width: 400px;
+            justify-self: end;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-auth-card:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                text-align: center;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .hero-content p {
+                margin: 0 auto 2rem auto;
+            }
+            .hero-auth-card {
+                justify-self: center;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-auth-card {
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+            .hero-auth-card h2 {
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
+            }
+            .hero-grid {
+                gap: 2.5rem;
+            }
+        }
+    </style>
 </head>
+
 <body style="padding-top: 60px;">
     <nav class="navbar">
         <div class="container">
             <a href="/" class="logo">
-                <img src="/images/whale.jpeg" alt="The Whale Investors Logo" loading="eager">
-                <span>The Whale Investors</span>
+                <img src="/logo/logo1.jpeg" alt="Pulse International Investors Logo" loading="eager">
+                <span>Pulse International Investors</span>
             </a>
             <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
             <ul class="nav-links" id="navLinks">
@@ -22,91 +83,290 @@
                 <li><a href="#plans">Plans</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="/login" class="btn btn-primary">Login</a></li>
-                <li><a href="/register" class="btn btn-secondary">Register</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="home" class="hero" style="padding: 80px 0; background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; background-repeat: no-repeat; color: white;">
+    <section id="home" class="hero" style="
+        padding: 80px 0; 
+        background: linear-gradient(rgba(8,10,69,0.7), rgba(0,240,255,0.3)), url('/photos/hero%20bg.jpg') center/cover no-repeat; 
+        color: var(--white);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;">
         <div class="container">
-            <div class="hero-grid" style="grid-template-columns: 1fr; max-width: 760px;">
+            <div class="hero-grid">
                 <div class="hero-content">
-                    <h1>Invest Smart, Grow Faster in Uganda</h1>
-                    <p>Join thousands of Ugandan investors earning daily profits with our secure investment platform. Accepting MTN and Airtel Money.</p>
-                    <a href="/register" class="btn btn-primary hero-cta">Get Started Now</a>
+                    <h1 style="font-family: 'Brexon', sans-serif; font-weight: 900; font-size: clamp(2rem, 8vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                        Designed for Growth.<br>Built for You
+                    </h1>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 500px; font-weight: 500; background: linear-gradient(90deg, #FFFFFF 0%, #00F0FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        Join thousands of investors growing their wealth steadily with our secure investment platform designed for consistent and reliable long-term returns.
+                    </p>
+                </div>
+                
+                <div class="hero-auth-card">
+                    <h2 style="color: var(--secondary-color); margin-bottom: 1rem; margin-top: 0.5rem; font-size: 1.6rem; text-align: center;">Welcome Back</h2>
+                    <form method="POST" action="/auth/login">
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label style="color: var(--white); font-size: 0.85rem; margin-bottom: 0.4rem; display: block;">Email Address</label>
+                            <input type="email" name="email" required placeholder="Enter email" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 10px; padding: 10px; font-size: 0.9rem; width: 100%;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label style="color: var(--white); font-size: 0.85rem; margin-bottom: 0.4rem; display: block;">Password</label>
+                            <input type="password" name="password" required placeholder="Enter password" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 10px; padding: 10px; font-size: 0.9rem; width: 100%;">
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 10px; padding: 12px; font-weight: bold;">Login to Account</button>
+                    </form>
+                    <div style="margin-top: 1.2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                        <p style="font-size: 0.9rem; opacity: 0.9;">Don't have an account? <a href="/register" style="color: var(--secondary-color); text-decoration: none; font-weight: bold;">Register Now</a></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="plans" style="padding: 60px 0; background: #f5f5f5;">
+    <section id="plans" style="padding: 100px 0; background: var(--primary-bg);">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3rem; font-size: clamp(1.3rem, 5vw, 2.5rem);">Investment Plans</h2>
-            <div class="plans-grid home-plans-grid">
-                <% plans.forEach((plan, index) => { %>
-                <% const planName = (plan.name || '').toLowerCase(); %>
-                <% const planIcon = planName.includes('starter') || planName.includes('basic') ? 'fa-seedling' : planName.includes('standard') || planName.includes('silver') ? 'fa-chart-line' : planName.includes('premium') || planName.includes('gold') ? 'fa-gem' : planName.includes('vip') || planName.includes('ultimate') ? 'fa-crown' : 'fa-coins'; %>
-                <div class="plan-card">
-                    <div style="text-align:center; margin-bottom: 0.9rem;"><i class="fas <%= planIcon %>" style="font-size: 1.8rem; color: var(--primary-color);"></i></div>
-                    <div class="plan-name"><%= plan.name %></div>
-                    <div class="plan-price">UGX <%= Number(plan.minimumAmount).toLocaleString() %><% if (plan.maximumAmount) { %> - <%= Number(plan.maximumAmount).toLocaleString() %><% } else { %>+<% } %></div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-chart-line"></i> <%= plan.dailyRate %>% Daily Profit</li>
-                        <li><i class="fas fa-clock"></i> <%= plan.durationDays %> Days Duration</li>
-                        <li><i class="fas fa-piggy-bank"></i> Capital Return</li>
-                        <li><i class="fas fa-users"></i> <%= Math.max(Number(plan.referralBonusRate) || 10, 10) %>% Referral Bonus</li>
+            <h2 style="text-align: center; margin-bottom: 5rem; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--white);">Investment Plans</h2>
+            
+            <!-- Plan 1 -->
+            <div class="plan-item-row">
+                <div class="plan-item-image">
+                    <img src="/images/inv1.jpg" alt="Starter Growth">
+                </div>
+                <div class="plan-item-content">
+                    <h3>Starter Growth</h3>
+                    <p class="description">
+                        Perfect for beginners. Kickstart your investment journey with our accessible Starter Growth plan. 
+                        Benefit from consistent daily returns and a low entry barrier, ideal for testing the pulse of the market.
+                    </p>
+                    <div class="plan-item-details-grid">
+                        <div class="detail-item"><label>Investment Range</label><span>UGX 50k - 99k</span></div>
+                        <div class="detail-item"><label>Daily Profit</label><span>2% Daily</span></div>
+                        <div class="detail-item"><label>Duration</label><span>60 Days</span></div>
+                        <div class="detail-item"><label>Bonus</label><span>10% Referral</span></div>
+                    </div>
+                    <a href="/register" class="btn btn-primary" style="padding: 1rem 2.5rem; border-radius: 50px;">Start Investing Now</a>
+                </div>
+            </div>
+
+            <!-- Plan 2 -->
+            <div class="plan-item-row">
+                <div class="plan-item-image">
+                    <img src="/images/inv2.jpg" alt="Silver Advance">
+                </div>
+                <div class="plan-item-content">
+                    <h3>Silver Advance</h3>
+                    <p class="description">
+                        Elevate your earnings. Our Silver Advance plan is designed for investors looking for that extra edge. 
+                        With higher daily yields and increased referral bonuses, it's the professional choice for steady wealth accumulation.
+                    </p>
+                    <div class="plan-item-details-grid">
+                        <div class="detail-item"><label>Investment Range</label><span>UGX 100k - 999k</span></div>
+                        <div class="detail-item"><label>Daily Profit</label><span>2.5% Daily</span></div>
+                        <div class="detail-item"><label>Duration</label><span>60 Days</span></div>
+                        <div class="detail-item"><label>Bonus</label><span>10% Referral</span></div>
+                    </div>
+                    <a href="/register" class="btn btn-primary" style="padding: 1rem 2.5rem; border-radius: 50px;">Choose Silver Plan</a>
+                </div>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="plan-item-row">
+                <div class="plan-item-image">
+                    <img src="/images/inv3.jpg" alt="Gold Elite">
+                </div>
+                <div class="plan-item-content">
+                    <h3>Gold Elite</h3>
+                    <p class="description">
+                        Premium growth for serious investors. The Gold Elite plan offers industry-leading daily profits 
+                        and high-tier referral rewards. Experience the full potential of your capital with our most popular investment tier.
+                    </p>
+                    <div class="plan-item-details-grid">
+                        <div class="detail-item"><label>Investment Range</label><span>UGX 1M - 4.9M</span></div>
+                        <div class="detail-item"><label>Daily Profit</label><span>2.8% Daily</span></div>
+                        <div class="detail-item"><label>Duration</label><span>60 Days</span></div>
+                        <div class="detail-item"><label>Bonus</label><span>10% Referral</span></div>
+                    </div>
+                    <a href="/register" class="btn btn-primary" style="padding: 1rem 2.5rem; border-radius: 50px;">Go Gold Elite</a>
+                </div>
+            </div>
+
+            <!-- Plan 4 -->
+            <div class="plan-item-row">
+                <div class="plan-item-image">
+                    <img src="/images/inv4.jpg" alt="Platinum Ultimate">
+                </div>
+                <div class="plan-item-content">
+                    <h3>Platinum Ultimate</h3>
+                    <p class="description">
+                        The pinnacle of investment excellence. Our Platinum Ultimate plan is tailored for high-net-worth individuals 
+                        seeking maximum returns. Enjoy top-tier daily yields and the highest referral bonuses on the platform.
+                    </p>
+                    <div class="plan-item-details-grid">
+                        <div class="detail-item"><label>Investment Range</label><span>UGX 5M+</span></div>
+                        <div class="detail-item"><label>Daily Profit</label><span>3% Daily</span></div>
+                        <div class="detail-item"><label>Duration</label><span>60 Days</span></div>
+                        <div class="detail-item"><label>Bonus</label><span>10% Referral</span></div>
+                    </div>
+                    <a href="/register" class="btn btn-primary" style="padding: 1rem 2.5rem; border-radius: 50px;">Unlock Platinum</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="features" style="padding: 100px 0; background: var(--primary-bg-darker);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 5rem; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--white);">Why Choose Us</h2>
+            
+            <!-- Feature 1 -->
+            <div class="plan-item-row">
+                <div class="plan-item-image">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Secure Platform">
+                </div>
+                <div class="plan-item-content">
+                    <h3>Secure Platform</h3>
+                    <p class="description">
+                        Your security is our top priority. We utilize bank-grade encryption and advanced security protocols 
+                        to ensure your personal data and investments are protected around the clock. 
+                        Invest with peace of mind knowing your wealth is in safe hands.
+                    </p>
+                    <ul style="list-style: none; color: var(--body-text); opacity: 0.8; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.8rem;">• End-to-end Encryption</li>
+                        <li style="margin-bottom: 0.8rem;">• 2-Factor Authentication</li>
+                        <li style="margin-bottom: 0.8rem;">• Regular Security Audits</li>
                     </ul>
-                    <a href="/register" class="btn btn-primary">Invest Now</a>
                 </div>
-                <% }) %>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="plan-item-row">
+                <div class="plan-item-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Daily Profits">
+                </div>
+                <div class="plan-item-content">
+                    <h3>Daily Profits</h3>
+                    <p class="description">
+                        Why wait for monthly returns? Our platform is engineered to deliver profits to your dashboard every single day. 
+                        Watch your wealth grow in real-time and enjoy the flexibility of daily earning tracking and accumulation.
+                    </p>
+                    <ul style="list-style: none; color: var(--body-text); opacity: 0.8; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.8rem;">• Real-time Dashboard</li>
+                        <li style="margin-bottom: 0.8rem;">• Automated Profit Payouts</li>
+                        <li style="margin-bottom: 0.8rem;">• Transparent Earning History</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="plan-item-row">
+                <div class="plan-item-image">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Mobile Money">
+                </div>
+                <div class="plan-item-content">
+                    <h3>Mobile Money Support</h3>
+                    <p class="description">
+                        Specifically designed for the Ugandan market, we support seamless deposits and withdrawals via 
+                        MTN Mobile Money and Airtel Money. No bank accounts required—just your phone and your ambition.
+                    </p>
+                    <ul style="list-style: none; color: var(--body-text); opacity: 0.8; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.8rem;">• Instant MTN Deposits</li>
+                        <li style="margin-bottom: 0.8rem;">• Fast Airtel Money Withdrawals</li>
+                        <li style="margin-bottom: 0.8rem;">• 24/7 Payment Processing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="plan-item-row">
+                <div class="plan-item-image">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Referral Program">
+                </div>
+                <div class="plan-item-content">
+                    <h3>Referral Rewards</h3>
+                    <p class="description">
+                        Growth is better together. Earn generous bonuses by inviting your friends and family to join the 
+                        Pulse community. Build your own network of investors and earn extra passive income on every successful referral.
+                    </p>
+                    <ul style="list-style: none; color: var(--body-text); opacity: 0.8; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.8rem;">• Up to 10% Referral Bonus</li>
+                        <li style="margin-bottom: 0.8rem;">• Multi-level Reward System</li>
+                        <li style="margin-bottom: 0.8rem;">• Track Referrals Instantly</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" style="padding: 100px 0; background: var(--primary-bg); color: var(--body-text-alt);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 5rem; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--white);">About Pulse International Investors</h2>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; align-items: stretch;">
+                <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 20px;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--secondary-color);">Who We Are</h3>
+                    <p style="line-height: 1.8;">We are building a Uganda-focused investment platform designed for accessibility, transparency,
+                        and mobile-first convenience.</p>
+                </div>
+                <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 20px;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--secondary-color);">Our Mission</h3>
+                    <p style="line-height: 1.8;">To make investing simpler for everyday users through clear plans, easy account management, and
+                        local payment support.</p>
+                </div>
+                <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 20px;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--secondary-color);">Why Investors Choose Us</h3>
+                    <p style="line-height: 1.8;">Simple dashboards, mobile money support, referral rewards, and manual admin review workflows for
+                        transparency.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="features" style="padding: 60px 0;">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3rem; font-size: clamp(1.3rem, 5vw, 2.5rem);">Why Choose Us</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                <div style="text-align: center;"><i class="fas fa-shield-alt" style="font-size: clamp(2rem, 5vw, 3rem); color: var(--primary-color); margin-bottom: 1rem;"></i><h3>Secure Platform</h3><p>Your investments are safe with our advanced security measures.</p></div>
-                <div style="text-align: center;"><i class="fas fa-chart-line" style="font-size: clamp(2rem, 5vw, 3rem); color: var(--primary-color); margin-bottom: 1rem;"></i><h3>Daily Profits</h3><p>Earn daily returns on your investments automatically.</p></div>
-                <div style="text-align: center;"><i class="fas fa-mobile-alt" style="font-size: clamp(2rem, 5vw, 3rem); color: var(--primary-color); margin-bottom: 1rem;"></i><h3>Mobile Money</h3><p>Deposit and withdraw via MTN & Airtel Money.</p></div>
-                <div style="text-align: center;"><i class="fas fa-users" style="font-size: clamp(2rem, 5vw, 3rem); color: var(--primary-color); margin-bottom: 1rem;"></i><h3>Referral Program</h3><p>Earn bonuses by referring friends and family.</p></div>
-            </div>
-        </div>
-    </section>
 
-    <section id="about" style="padding: 60px 0; background: white;">
+    <footer class="footer">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3rem; font-size: clamp(1.3rem, 5vw, 2.5rem);">About The Whale Investors</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; align-items: stretch;">
-                <div class="card"><h3 style="margin-bottom: 1rem; color: var(--primary-color);">Who We Are</h3><p>We are building a Uganda-focused investment platform designed for accessibility, transparency, and mobile-first convenience.</p></div>
-                <div class="card"><h3 style="margin-bottom: 1rem; color: var(--primary-color);">Our Mission</h3><p>To make investing simpler for everyday users through clear plans, easy account management, and local payment support.</p></div>
-                <div class="card"><h3 style="margin-bottom: 1rem; color: var(--primary-color);">Why Investors Choose Us</h3><p>Simple dashboards, mobile money support, referral rewards, and manual admin review workflows for transparency.</p></div>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 1.5rem;">
+                <div>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Pulse International Investors</h3>
+                    <p style="font-size: 0.9rem;">Your trusted investment partner for financial growth in Uganda.</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Quick Links</h3>
+                    <ul style="list-style: none; font-size: 0.9rem;">
+                        <li><a href="#home" style="color: var(--body-text-alt); text-decoration: none;">Home</a></li>
+                        <li><a href="#plans" style="color: var(--body-text-alt); text-decoration: none;">Plans</a></li>
+                        <li><a href="#features" style="color: var(--body-text-alt); text-decoration: none;">Features</a>
+                        </li>
+                        <li><a href="#about" style="color: var(--body-text-alt); text-decoration: none;">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Contact</h3>
+                    <p style="font-size: 0.9rem;">Email: support@pulseinvestors.ug</p>
+                    <p style="font-size: 0.9rem;">Phone: +256 700 123456</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Follow Us</h3>
+                    <div style="display: flex; gap: 1rem;"><a href="#"
+                            style="color: var(--secondary-color); font-size: 1.2rem;"><i
+                                class="fab fa-facebook"></i></a><a href="#"
+                            style="color: var(--secondary-color); font-size: 1.2rem;"><i
+                                class="fab fa-twitter"></i></a><a href="#"
+                            style="color: var(--secondary-color); font-size: 1.2rem;"><i
+                                class="fab fa-whatsapp"></i></a></div>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <section style="padding: 60px 0; background: var(--primary-color); color: white; text-align: center;">
-        <div class="container">
-            <h2 style="font-size: clamp(1.3rem, 5vw, 2.5rem); margin-bottom: 1rem;">Ready to Start Investing?</h2>
-            <p style="font-size: clamp(1rem, 3vw, 1.2rem); margin-bottom: 2rem;">Join thousands of satisfied Ugandan investors today.</p>
-            <a href="/register" class="btn" style="background: white; color: var(--primary-color); padding: 0.8rem 2rem; font-size: clamp(0.9rem, 3vw, 1.2rem); display: inline-block;">Create Account</a>
-        </div>
-    </section>
-
-    <footer style="background: var(--dark-color); color: white; padding: 2rem 0;">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 1.5rem;">
-                <div><h3 style="margin-bottom: 1rem; font-size: 1.1rem;">whaleInvesotors Uganda</h3><p style="font-size: 0.9rem;">Your trusted investment partner for financial growth in Uganda.</p></div>
-                <div><h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Quick Links</h3><ul style="list-style: none; font-size: 0.9rem;"><li><a href="#home" style="color: #ccc; text-decoration: none;">Home</a></li><li><a href="#plans" style="color: #ccc; text-decoration: none;">Plans</a></li><li><a href="#features" style="color: #ccc; text-decoration: none;">Features</a></li><li><a href="#about" style="color: #ccc; text-decoration: none;">About</a></li></ul></div>
-                <div><h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Contact</h3><p style="font-size: 0.9rem;">Email: support@whaleInvesotors.ug</p><p style="font-size: 0.9rem;">Phone: +256 700 123456</p></div>
-                <div><h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Follow Us</h3><div style="display: flex; gap: 1rem;"><a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a><a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a><a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-whatsapp"></i></a></div></div>
-            </div>
-            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem; text-align: center; font-size: 0.9rem; color: #ccc;">© <%= new Date().getFullYear() %> The Whale Investors. All rights reserved.</div>
+            <div
+                style="border-top: 1px solid rgba(0,240,255,0.08); padding-top: 1rem; text-align: center; font-size: 0.9rem; color: var(--body-text-alt);">
+                © <%= new Date().getFullYear() %> Pulse International Investors. All rights reserved.</div>
         </div>
     </footer>
 
     <script src="/js/main.js"></script>
 </body>
+
 </html>

@@ -1,15 +1,10 @@
+
 const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
-const { CloudinaryStorage } = require('multer-storage-cloudinary');
-const cloudinary = require('../config/cloudinary');
+
 
 const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
-const hasCloudinary = Boolean(
-  process.env.CLOUDINARY_CLOUD_NAME &&
-  process.env.CLOUDINARY_API_KEY &&
-  process.env.CLOUDINARY_API_SECRET
-);
 
 function ensureUploadsDir() {
   const uploadDir = path.join(__dirname, '..', 'public', 'uploads');
@@ -18,17 +13,7 @@ function ensureUploadsDir() {
 }
 
 const createStorage = (folder) => {
-  if (hasCloudinary) {
-    return new CloudinaryStorage({
-      cloudinary,
-      params: async () => ({
-        folder,
-        allowed_formats: ['jpg', 'jpeg', 'png', 'webp'],
-        transformation: [{ width: 1400, crop: 'limit' }],
-      }),
-    });
-  }
-
+  // Only local uploads supported
   const uploadDir = ensureUploadsDir();
   return multer.diskStorage({
     destination: (_req, _file, cb) => cb(null, uploadDir),
@@ -41,9 +26,11 @@ const createStorage = (folder) => {
 
 const createUploader = (folder) => multer({
   storage: createStorage(folder),
-  limits: { fileSize: 3 * 1024 * 1024 },
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
   fileFilter: (_req, file, cb) => {
-    if (!allowedMimeTypes.includes(file.mimetype)) return cb(new Error('Only JPG, PNG and WEBP images are allowed'));
+    if (!file.mimetype.startsWith('image/')) {
+      return cb(new Error('Only photo formats (JPG, PNG, GIF, HEIC, etc.) are allowed'));
+    }
     return cb(null, true);
   },
 });
@@ -60,7 +47,7 @@ function getUploadedAsset(file) {
 }
 
 module.exports = {
-  uploadProfileImage: createUploader('whale-investors/profiles'),
-  uploadDepositProof: createUploader('whale-investors/deposits'),
+  uploadProfileImage: createUploader('pulse-investors/profiles'),
+  uploadDepositProof: createUploader('pulse-investors/deposits'),
   getUploadedAsset,
 };

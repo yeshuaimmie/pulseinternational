@@ -1,5 +1,16 @@
 <%- include('../partials/head', { title }) %>
-<body style="padding-top:0;">
+<body style="padding-top: 0; background: linear-gradient(rgba(8,10,69,0.85), rgba(0,240,255,0.45)), url('/photos/hero%20bg.jpg') center/cover no-repeat fixed !important; color: white !important;">
+<style>
+    .main-content { background: transparent !important; }
+    .card, .info-item {
+        background: rgba(255, 255, 255, 0.05) !important;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+    }
+    .card h1, .card h3, .card-header h3 { color: white !important; }
+    .info-item strong { color: var(--secondary-color); }
+</style>
 <div class="dashboard">
   <%- include('../partials/adminSidebar') %>
   <div class="main-content">

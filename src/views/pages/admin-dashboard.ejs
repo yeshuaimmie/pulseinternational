@@ -1,5 +1,24 @@
 <%- include('../partials/head', { title }) %>
-<body style="padding-top: 0;">
+<body style="padding-top: 0; background: linear-gradient(rgba(8,10,69,0.85), rgba(0,240,255,0.45)), url('/photos/hero%20bg.jpg') center/cover no-repeat fixed !important; color: white !important;">
+<style>
+    .main-content { background: transparent !important; }
+    .card, .stat-card, .page-toolbar, .summary-grid .card {
+        background: rgba(255, 255, 255, 0.05) !important;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+    }
+    .card h1, .card h2, .card h3, .stat-info h3, .stat-info p, .card-header h3, .page-toolbar h1 {
+        color: white !important;
+    }
+    .stat-icon, .inline-balance {
+        background: rgba(255,255,255,0.1) !important;
+        color: white !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+    }
+    table thead th { background: rgba(255,255,255,0.1) !important; color: white !important; border-bottom: 1px solid rgba(255,255,255,0.2) !important; }
+    table tbody td { color: rgba(255,255,255,0.9) !important; border-bottom: 1px solid rgba(255,255,255,0.05) !important; }
+</style>
 <div class="dashboard collapsible-dashboard">
   <%- include('../partials/adminSidebar') %>
   <div class="main-content">
@@ -10,10 +29,10 @@
     </div>
 
     <div class="stats-grid">
-      <div class="stat-card"><div class="stat-info"><h3>Total Users</h3><p style="font-size: clamp(1.2rem, 4vw, 1.8rem);"><%= metrics.usersCount %></p></div><div class="stat-icon" style="background: #e3f2fd; color: #1976d2;"><i class="fas fa-users"></i></div></div>
-      <div class="stat-card"><div class="stat-info"><h3>Total Deposits</h3><p style="font-size: clamp(1.2rem, 4vw, 1.8rem);">UGX <%= Number(metrics.totalDeposited).toLocaleString() %></p></div><div class="stat-icon" style="background: #e8f5e8; color: #388e3c;"><i class="fas fa-money-bill-wave"></i></div></div>
-      <div class="stat-card"><div class="stat-info"><h3>Active Investments</h3><p style="font-size: clamp(1.2rem, 4vw, 1.8rem);"><%= metrics.investmentsCount %></p></div><div class="stat-icon" style="background: #fff3e0; color: #f57c00;"><i class="fas fa-chart-line"></i></div></div>
-      <div class="stat-card"><div class="stat-info"><h3>Pending Withdrawals</h3><p style="font-size: clamp(1.2rem, 4vw, 1.8rem);"><%= metrics.pendingWithdrawalsCount %></p></div><div class="stat-icon" style="background: #f3e5f5; color: #7b1fa2;"><i class="fas fa-clock"></i></div></div>
+      <div class="stat-card"><div class="stat-info"><h3>Total Users</h3><p style="font-size: clamp(1.2rem, 4vw, 1.8rem);"><%= metrics.usersCount %></p></div><div class="stat-icon"><i class="fas fa-users"></i></div></div>
+      <div class="stat-card"><div class="stat-info"><h3>Total Deposits</h3><p style="font-size: clamp(1.2rem, 4vw, 1.8rem);">UGX <%= Number(metrics.totalDeposited).toLocaleString() %></p></div><div class="stat-icon"><i class="fas fa-money-bill-wave"></i></div></div>
+      <div class="stat-card"><div class="stat-info"><h3>Active Investments</h3><p style="font-size: clamp(1.2rem, 4vw, 1.8rem);"><%= metrics.investmentsCount %></p></div><div class="stat-icon"><i class="fas fa-chart-line"></i></div></div>
+      <div class="stat-card"><div class="stat-info"><h3>Pending Withdrawals</h3><p style="font-size: clamp(1.2rem, 4vw, 1.8rem);"><%= metrics.pendingWithdrawalsCount %></p></div><div class="stat-icon"><i class="fas fa-clock"></i></div></div>
     </div>
 
     <div class="flex-grid-2" style="margin-bottom: 2rem;">
@@ -92,10 +111,10 @@
     </div>
 
     <div class="summary-grid" style="margin-top: 2rem;">
-      <div class="card" style="text-align:center;"><h3 style="color:#666; font-size:0.95rem;">Today's Deposits</h3><p style="font-size: clamp(1.2rem, 4vw, 2rem); color: var(--primary-color);">UGX <%= Number(metrics.depositsToday).toLocaleString() %></p></div>
-      <div class="card" style="text-align:center;"><h3 style="color:#666; font-size:0.95rem;">Today's Withdrawals</h3><p style="font-size: clamp(1.2rem, 4vw, 2rem); color: var(--danger-color);">UGX <%= Number(metrics.withdrawalsToday).toLocaleString() %></p></div>
-      <div class="card" style="text-align:center;"><h3 style="color:#666; font-size:0.95rem;">New Users Today</h3><p style="font-size: clamp(1.2rem, 4vw, 2rem); color: var(--secondary-color);"><%= metrics.newUsersToday %></p></div>
-      <div class="card" style="text-align:center;"><h3 style="color:#666; font-size:0.95rem;">Total Profit Paid</h3><p style="font-size: clamp(1.2rem, 4vw, 2rem); color: var(--success-color);">UGX <%= Number(metrics.totalProfitPaid).toLocaleString() %></p></div>
+      <div class="card" style="text-align:center;"><h3>Today's Deposits</h3><p style="font-size: clamp(1.2rem, 4vw, 2rem); color: var(--primary-color);">UGX <%= Number(metrics.depositsToday).toLocaleString() %></p></div>
+      <div class="card" style="text-align:center;"><h3>Today's Withdrawals</h3><p style="font-size: clamp(1.2rem, 4vw, 2rem); color: var(--danger-color);">UGX <%= Number(metrics.withdrawalsToday).toLocaleString() %></p></div>
+      <div class="card" style="text-align:center;"><h3>New Users Today</h3><p style="font-size: clamp(1.2rem, 4vw, 2rem); color: var(--secondary-color);"><%= metrics.newUsersToday %></p></div>
+      <div class="card" style="text-align:center;"><h3>Total Profit Paid</h3><p style="font-size: clamp(1.2rem, 4vw, 2rem); color: var(--success-color);">UGX <%= Number(metrics.totalProfitPaid).toLocaleString() %></p></div>
     </div>
   </div>
 </div>

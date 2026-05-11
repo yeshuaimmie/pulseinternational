@@ -1,4 +1,4 @@
-# The Whale Investors
+# Pulse International Investors
 
 Production-ready starter built with Node.js, Express, EJS, MongoDB, JWT cookies, Cloudinary uploads, and MVC naming.
 
