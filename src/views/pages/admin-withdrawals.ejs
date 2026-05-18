@@ -298,7 +298,7 @@ function viewWithdrawalDetails(data) {
   document.getElementById('modalTitle').textContent = `Withdrawal Details - ${data.reference}`;
   document.getElementById('modalBody').innerHTML = `
     <div style="display: grid; gap: 1rem;">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+      <div class="modal-detail-grid">
         <div><strong>User Name:</strong> ${data.user}</div>
         <div><strong>Email:</strong> ${data.email}</div>
         <div><strong>Phone:</strong> ${data.phone}</div>

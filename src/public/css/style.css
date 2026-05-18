@@ -2123,3 +2123,37 @@ body.sidebar-open {
         padding: 0 10px;
     }
 }
+
+/* ==========================================
+   RESPONSIVE TWO-COLUMN LAYOUT
+   Used on deposit, withdrawal, and similar pages
+   where two containers sit side by side on desktop
+   but must stack vertically on mobile
+   ========================================== */
+
+.two-col-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .two-col-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Modal detail grids (admin deposit/withdrawal modals) */
+.modal-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 480px) {
+    .modal-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}

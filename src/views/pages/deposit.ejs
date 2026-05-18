@@ -20,7 +20,7 @@
     <h1 style="margin-bottom: 2rem;">Make a Deposit</h1>
     <%- include('../partials/alerts') %>
 
-    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items:start;">
+    <div class="two-col-layout">
       <div class="card">
         <div class="card-header">
           <h3>Payment Instructions</h3>
@@ -54,15 +54,6 @@
           </ol>
         </div>
 
-        <div style="margin-bottom: 1.5rem;">
-          <h4 style="color: #26a17b; margin-bottom: 0.5rem;">Crypto USDT Wallet</h4>
-          <p style="margin-bottom: 0.6rem;">Network: TRC20</p>
-          <div style="display:flex; gap:0.6rem; flex-wrap:wrap; align-items:center;">
-            <input id="usdtWallet" type="text" readonly value="TFo66zhvZyCHRFfBMyby5UX3YVYFF1J1zX" class="copy-field" style="flex:1 1 280px; background:#fff;">
-            <button type="button" class="btn btn-primary btn-sm" onclick="copyTextValue('#usdtWallet')">Copy Address</button>
-          </div>
-          <small style="display:block; color:#666; margin-top:0.5rem;">Send only USDT (TRC20) to this wallet address.</small>
-        </div>
 
         <div style="background: #f5f5f5; color:#222; padding: 1rem; border-radius: 5px;">
           <h4 style="margin-bottom: 0.5rem;">Important Notes:</h4>
@@ -93,7 +84,7 @@
               <option value="mtn">MTN Mobile Money</option>
               <option value="airtel">Airtel Money</option>
               <option value="bank">Bank Transfer</option>
-              <option value="crypto_usdt">Crypto USDT Wallet</option>
+
             </select>
           </div>
 
@@ -141,7 +132,7 @@
               <tr>
                 <td><%= new Date(deposit.createdAt).toISOString().slice(0, 10) %></td>
                 <td>UGX <%= Number(deposit.amount).toLocaleString() %></td>
-                <td><%= deposit.paymentMethod === 'mtn' ? 'MTN Mobile Money' : deposit.paymentMethod === 'airtel' ? 'Airtel Money' : deposit.paymentMethod === 'crypto_usdt' ? 'Crypto USDT Wallet' : 'Bank Transfer' %></td>
+                <td><%= deposit.paymentMethod === 'mtn' ? 'MTN Mobile Money' : deposit.paymentMethod === 'airtel' ? 'Airtel Money' : 'Bank Transfer' %></td>
                 <td><span class="status-badge status-<%= deposit.status === 'approved' ? 'completed' : deposit.status %>"><%= deposit.status === 'approved' ? 'Completed' : deposit.status.charAt(0).toUpperCase() + deposit.status.slice(1) %></span></td>
               </tr>
             <% }) %>
